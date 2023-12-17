@@ -15,9 +15,9 @@ resource "aws_key_pair" "key121" {
 
 resource "aws_instance" "app_server" {
   ami           = "ami-0759f51a90924c166"
-  instance_type = "t2.micro"
+  instance_type = var.ec2type
   key_name      = aws_key_pair.key121.key_name
   tags = {
-    Name = "User34_test"
+    Name = var.ec2tag
   }
 }
