@@ -1,3 +1,5 @@
 1. install aws cli, terarform, visual studio code in local machine.
 
 2. create ec2 instance with t2.micro, ubuntu images on us-east-1 region.
+
+3. create key-pair with terraform and attacxh it to ec2 insrtance.
