@@ -4,11 +4,11 @@ resource "tls_private_key" "oskey" {
  
 resource "local_file" "myterrakey" {
   content  = tls_private_key.oskey.private_key_pem
-  filename = "user34v1.pem"
+  filename = "${var.ec2keyname}.pem"
 }
  
 resource "aws_key_pair" "key121" {
-  key_name   = "user34v1"
+  key_name   = var.ec2keyname
   public_key = tls_private_key.oskey.public_key_openssh
 }
 

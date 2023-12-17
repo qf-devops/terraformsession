@@ -8,3 +8,8 @@ variable "ec2tag"{
     description = "ec2 instance tag"
     default = "devo"
 }
+
+variable "ec2keyname"{
+    type = string
+    description = "ec2 key"
+}
