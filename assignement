@@ -3,3 +3,5 @@
 2. create ec2 instance with t2.micro, ubuntu images on us-east-1 region.
 
 3. create key-pair with terraform and attacxh it to ec2 insrtance.
+    https://www.linkedin.com/pulse/creating-key-pair-ec2-instance-running-script-using-terraform-pant
+    
