@@ -17,4 +17,10 @@ terraform apply -state=staging.tfstate staging.plan
 5. same backend i.e s3 bucket
    how to handle or pass path asa parmamter for single backend with diifdrent path for different env...
 
+6. read about different input variables in terraform.
+    string
+    numner
+    list
+    dict
+
 
