@@ -14,4 +14,7 @@ terraform apply -state=dev.tfstate dev.plan
 terraform plan -out=staging.plan -var-file=staging.tfvars -state=staging.tfstate
 terraform apply -state=staging.tfstate staging.plan 
 
+5. same backend i.e s3 bucket
+   how to handle or pass path asa parmamter for single backend with diifdrent path for different env...
+
 
