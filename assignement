@@ -5,5 +5,13 @@
 3. create key-pair with terraform and attacxh it to ec2 insrtance.
     https://www.linkedin.com/pulse/creating-key-pair-ec2-instance-running-script-using-terraform-pant
 
+4. create resources for dev and staging from same directory with same code with tfvars differences, differentiate terraformtfstate files for dev and staging in smae directory.
+
+terraform plan -out=dev.plan -var-file=dev.tfvars -state=dev.tfsttae
+terraform apply dev.plan
+
+
+terraform plan -out=staging.plan -var-file=staging.tfvars -state=staging.tfstate
+terraform apply staging.plan
 
 
