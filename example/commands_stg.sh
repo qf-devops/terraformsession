@@ -1,2 +1,6 @@
-terraform plan -out=staging.plan -var-file=staging.tfvars -state=staging.tfstate
-terraform apply -state=staging.tfstate staging.plan
+
+terraform init -backend-config=dev.conf
+
+terraform plan -out=staging.plan -var-file=staging.tfvars
+
+terraform apply staging.plan
