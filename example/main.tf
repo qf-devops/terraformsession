@@ -14,10 +14,11 @@ resource "aws_key_pair" "key121" {
 
 
 resource "aws_instance" "app_server" {
+  for_each      = toset(var.instanceslist)
   ami           = "ami-0759f51a90924c166"
   instance_type = var.ec2type
   key_name      = aws_key_pair.key121.key_name
   tags = {
-    Name = var.ec2tag
+    Name = each.value
   }
 }

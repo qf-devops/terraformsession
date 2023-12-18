@@ -13,3 +13,7 @@ variable "ec2keyname"{
     type = string
     description = "ec2 key"
 }
+variable "instanceslist"{
+    type = list
+    description = "ec2 insytances list"
+}
