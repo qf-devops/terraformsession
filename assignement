@@ -32,4 +32,6 @@ terraform apply -state=staging.tfstate staging.plan
 
 9. create multiple aws ec2 instances with terraform.
     count
-10. Create multiple ec2 instanes by using list variable 
+10. Create multiple ec2 instanes by using list variable (by using itertion  method alias for loop.)
+
+11. Add userdata through terraform to configure as part of bootstrap.
