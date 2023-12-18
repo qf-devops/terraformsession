@@ -32,5 +32,4 @@ terraform apply -state=staging.tfstate staging.plan
 
 9. create multiple aws ec2 instances with terraform.
     count
-    list parametrs.
-     
+10. Create multiple ec2 instanes by using list variable 
