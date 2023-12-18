@@ -30,3 +30,4 @@ terraform apply -state=staging.tfstate staging.plan
     git clone repo
     terraform commands.
 
+9. create multiple aws ec2 instances with terraform. 
