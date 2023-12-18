@@ -22,5 +22,11 @@ terraform apply -state=staging.tfstate staging.plan
     numner
     list
     dict
-
+7. install docker in ec2 or local machine, run below command for container
+   docker run -itd -tf devopsjuly22017/terraform
+   docker exec -it tf bash
+8. setup aws configure and clone below repo and run terraform commands≥
+    aws configure
+    git clone repo
+    terraform commands.
 
