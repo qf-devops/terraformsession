@@ -35,3 +35,5 @@ terraform apply -state=staging.tfstate staging.plan
 10. Create multiple ec2 instanes by using list variable (by using itertion  method alias for loop.)
 
 11. Add userdata through terraform to configure as part of bootstrap.
+
+12. create s3 bucket and ec2 instance using terraform.
