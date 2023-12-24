@@ -55,4 +55,14 @@ userdata:
     sudo apt update
     sudo apt install nginx -y
     sudo systemctl enable nginx
-   
+
+solution:
+   resource "aws_instance" "Rajguru-Nginx-server" {
+  ami = "ami-00b8917ae86a424c9"
+  instance_type = "t2.micro"
+  key_name = "user18-ppk"
+  security_groups = ["launch-wizard-4"]
+  user_data = file("/terraformsession/script.sh")
+}
+
+14. create security group and attach it to ec2 instance.
