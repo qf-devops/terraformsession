@@ -37,3 +37,22 @@ terraform apply -state=staging.tfstate staging.plan
 11. Add userdata through terraform to configure as part of bootstrap.
 
 12. create s3 bucket and ec2 instance using terraform.
+
+13 . Attch existing ssh keypair, securitygroup, add userdata.
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-0fc5d935ebf8bc3bc"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+}
+
+
+userdata:
+    #!/bin/bash
+    sudo apt update
+    sudo apt install nginx -y
+    sudo systemctl enable nginx
+   
