@@ -66,3 +66,5 @@ solution:
 }
 
 14. create security group and attach it to ec2 instance.
+
+15 . create multiple ec2 instances with count parameter.

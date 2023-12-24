@@ -7,13 +7,14 @@ resource "aws_s3_bucket" "example" {
   }
 }
 resource "aws_instance" "app_server" {
+  count = 2
   ami           = var.ami_id
   instance_type = "t2.micro"
   key_name = "user34"
   security_groups = [aws_security_group.example.name]
   user_data = "${file("init.sh")}"
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "count.index"
   }
 }
 
