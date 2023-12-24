@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "example" {
   }
 }
 resource "aws_instance" "app_server" {
-  ami           = "ami-0fc5d935ebf8bc3bc"
+  ami           = var.ami_id
   instance_type = "t2.micro"
   key_name = "user34"
   security_groups = [aws_security_group.example.name]
