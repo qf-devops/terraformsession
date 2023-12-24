@@ -11,12 +11,7 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
   key_name = "user34"
   security_groups = ["launch-wizard-15"]
-  user_data = <<EOF
-   #!/bin/bash
-   sudo apt update
-   sudo apt install nginx -y
-   sudo systemctl enable nginx
-  EOF
+  user_data = "${file("init.sh")}"
   tags = {
     Name = "ExampleAppServerInstance"
   }
