@@ -18,7 +18,7 @@ resource "aws_instance" "app_server" {
 }
 
 resource "aws_security_group" "example" {
-  name        = "example-security-group"
+  name        = "example-security-group34"
   description = "Example security group for EC2 instance"
  
   ingress {
