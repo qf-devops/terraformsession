@@ -6,16 +6,16 @@ resource "aws_s3_bucket" "example" {
     Environment = "Prod"
   }
 }
-resource "aws_instance" "app_server" {
-  ami           = "ami-0fc5d935ebf8bc3bc"
-  instance_type = "t2.micro"
-  key_name = "user34"
-  security_groups = ["aws_security_group.example.id"]
-  user_data = "${file("init.sh")}"
-  tags = {
-    Name = "ExampleAppServerInstance"
-  }
-}
+# resource "aws_instance" "app_server" {
+#   ami           = "ami-0fc5d935ebf8bc3bc"
+#   instance_type = "t2.micro"
+#   key_name = "user34"
+#   security_groups = ["aws_security_group.example.id"]
+#   user_data = "${file("init.sh")}"
+#   tags = {
+#     Name = "ExampleAppServerInstance"
+#   }
+# }
 
 resource "aws_security_group" "example" {
   name        = "example-security-group34"
