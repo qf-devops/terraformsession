@@ -42,15 +42,10 @@ resource "aws_route_table_association" "main" {
   route_table_id = aws_route_table.main.id
 }
 
-resource "aws_network_interface" "test" {
-  subnet_id       = aws_subnet.public_a.id
+resource "aws_network_interface" "main" {
+  subnet_id       = aws_subnet.main.id
   private_ips     = ["11.0.1.50"]
-  security_groups = [aws_security_group.web.id]
-
-  attachment {
-    instance     = aws_instance.main.id
-    device_index = 1
-  }
+  security_groups = [aws_security_group.main.id]
 }
 
 resource "aws_instance" "main" {
@@ -60,7 +55,36 @@ resource "aws_instance" "main" {
   key_name = "user34"
   #security_groups = [aws_security_group.example.name]
   #user_data = file("init.sh")
+  network_interface {
+    network_interface_id = aws_network_interface.main.id
+    device_index         = 0
+  }
   tags = {
     Name = "instancewithvpc"
+  }
+}
+
+resource "aws_security_group" "main" {
+  name        = "example-security-group34"
+  description = "Example security group for EC2 instance"
+ 
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  
+  }
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  
+  }
+ 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"  
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
