@@ -88,7 +88,11 @@ resource "aws_security_group" "main" {
   }
 }
 
-resource "aws_eip" "lb" {
+resource "aws_eip" "main" {
   instance = aws_instance.main.id
-  domain   = "vpc"
+}
+
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = aws_instance.main.id
+  allocation_id = aws_eip.main.id
 }
