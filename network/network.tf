@@ -49,7 +49,6 @@ resource "aws_network_interface" "main" {
 }
 
 resource "aws_instance" "main" {
-  count = 2
   ami           = var.ami_id
   instance_type = "t2.micro"
   key_name = "user34"
