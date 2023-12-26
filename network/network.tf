@@ -41,3 +41,26 @@ resource "aws_route_table_association" "main" {
   subnet_id      = aws_subnet.main.id
   route_table_id = aws_route_table.main.id
 }
+
+resource "aws_network_interface" "test" {
+  subnet_id       = aws_subnet.public_a.id
+  private_ips     = ["11.0.1.50"]
+  security_groups = [aws_security_group.web.id]
+
+  attachment {
+    instance     = aws_instance.main.id
+    device_index = 1
+  }
+}
+
+resource "aws_instance" "main" {
+  count = 2
+  ami           = var.ami_id
+  instance_type = "t2.micro"
+  key_name = "user34"
+  #security_groups = [aws_security_group.example.name]
+  #user_data = file("init.sh")
+  tags = {
+    Name = "instancewithvpc"
+  }
+}
