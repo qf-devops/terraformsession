@@ -66,7 +66,7 @@ resource "aws_instance" "main" {
 resource "aws_security_group" "main" {
   name        = "example-security-group34"
   description = "Example security group for EC2 instance"
- 
+  vpc_id      = aws_vpc.main.id
   ingress {
     from_port   = 22
     to_port     = 22
