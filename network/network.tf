@@ -87,3 +87,8 @@ resource "aws_security_group" "main" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_eip" "lb" {
+  instance = aws_instance.main.id
+  domain   = "vpc"
+}
