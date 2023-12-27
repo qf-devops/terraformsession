@@ -133,7 +133,7 @@ resource "aws_route_table_association" "backend" {
 }
 
 resource "aws_security_group" "backend" {
-  name        = "example-security-group34"
+  name        = "backend-security-group34"
   description = "Example security group for EC2 instance"
   vpc_id      = aws_vpc.main.id
   ingress {
