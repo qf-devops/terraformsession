@@ -128,7 +128,7 @@ resource "aws_route_table_association" "backend" {
   route_table_id = aws_route_table.backend.id
 }
 
-resource "aws_security_group" "main" {
+resource "aws_security_group" "backend" {
   name        = "example-security-group34"
   description = "Example security group for EC2 instance"
   vpc_id      = aws_vpc.main.id
