@@ -3,3 +3,8 @@ variable "ami_id"{
     description = "ami id"
     default = "ami-0fc5d935ebf8bc3bc"
 }
+
+variable "vpc_id"{
+    type = string
+    default = ""
+}

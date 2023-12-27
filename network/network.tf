@@ -7,6 +7,10 @@ resource "aws_vpc" "main" {
   }
 }
 
+# data "aws_vpc" "selected" {
+#   id = var.vpc_id
+# }
+
 resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.main.id
   cidr_block = "11.0.1.0/24"
