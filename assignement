@@ -74,5 +74,6 @@ solution:
 18. refer elb directory and execute 
 19. prepare one  diagram based on resources used.
 20 readabout autoscaling and terraform modules.
+21. create ec2, vpc and elb folders and rune terraform with modules.
 
 
