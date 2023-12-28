@@ -5,7 +5,7 @@ resource "aws_lb" "elb_example" {
   security_groups    = [aws_security_group.elb_sg.id]
   subnets            = [aws_subnet.public_1.id,aws_subnet.public_2.id]
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false
     tags = {
     Environment = "elb-example"
   }
