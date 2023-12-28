@@ -1,4 +1,4 @@
 module "abcelb"{
   source = "./elb"
-  tags = "moduledemotag"
+  tags = var.tags
 }
