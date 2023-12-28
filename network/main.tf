@@ -1,3 +1,3 @@
-module "vpc"{
+module "abcelb"{
   source = "./elb"
 }
