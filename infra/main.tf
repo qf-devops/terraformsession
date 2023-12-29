@@ -6,9 +6,9 @@ module "instances"{
   source = "./ec2"
   tags = var.tags
   instance_type = "t2.micro"
-  vpc_id = module.vpc.vpc_id
-  subnet_id1 = module.vpc.subnet_id
-  subnet_id2 = module.vpc.subnet_id
+  vpc_id = module.vpc.vpcids
+  subnet_id1 = module.vpc.subnetid1
+  subnet_id2 = module.vpc.subnetid2
 }
 # module "elb"{
 #   source = "./elb"
