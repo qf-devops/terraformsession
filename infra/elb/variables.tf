@@ -1,4 +1,9 @@
 
+
+variable "tags" {
+  type        = string
+}
+
 variable "subnet_id1"{
   type = string
 }
