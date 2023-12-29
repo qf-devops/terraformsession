@@ -10,7 +10,11 @@ module "instances"{
   subnet_id1 = module.vpc.subnetid1
   subnet_id2 = module.vpc.subnetid2
 }
-# module "elb"{
-#   source = "./elb"
-#   tags = var.tags
-# }
+module "elb"{
+  source        = "./elb"
+  tags          = var.tags
+  subnet_id1    = module.vpc.subnetid1
+  subnet_id2    = module.vpc.subnetid2
+  securitygroup = module.ec2.sg1
+  vpc_id        = module.vpc.vpcid
+}

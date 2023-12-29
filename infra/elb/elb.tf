@@ -2,8 +2,8 @@ resource "aws_lb" "elb_example" {
   name               = "elb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.elb_sg.id]
-  subnets            = [aws_subnet.public_1.id,aws_subnet.public_2.id]
+  security_groups    = [var.securitygroup]
+  subnets            = [var.subnet_id1,var.subnet_id2]
 
   enable_deletion_protection = false
     tags = {
