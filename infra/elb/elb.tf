@@ -28,7 +28,7 @@ resource "aws_lb_target_group" "test" {
   port     = 80
   protocol = "HTTP"
   target_type="instance"
-  vpc_id   = aws_vpc.vpc_demo.id
+  vpc_id   = var.vpc_id
 }
 
 resource "aws_lb_target_group_attachment" "test" {
