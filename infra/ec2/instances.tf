@@ -44,6 +44,6 @@ resource "aws_instance" "elb_instance_example2" {
 	EOF
 
   tags = {
-    Name = "EC2-Instance-1"
+    Name = "EC2-Instance-2"
   }
 }
