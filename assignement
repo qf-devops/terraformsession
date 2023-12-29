@@ -75,5 +75,12 @@ solution:
 19. prepare one  diagram based on resources used.
 20 readabout autoscaling and terraform modules.
 21. create ec2, vpc and elb folders and rune terraform with modules.
+22. AVG Cpu utilization reached to 80   ⇒ Add 2 more ec instances
+
+Avg cpu utilization on ec2 instances reached to 50% ⇒ Delete 1 ec2 instance
+
+ASG
+⇒ auto scaling group
+Enable the scale out and scale in policies to automatically to handle scaling with asg.
 
 
