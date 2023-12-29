@@ -18,3 +18,9 @@ variable "securitygroup"{
 variable "vpc_id"{
   type = string
 }
+variable "instance1"{
+  type = string
+}
+variable "instance2"{
+  type = string
+}

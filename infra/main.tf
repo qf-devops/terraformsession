@@ -15,6 +15,8 @@ module "elb"{
   tags          = var.tags
   subnet_id1    = module.vpc.subnetid1
   subnet_id2    = module.vpc.subnetid2
-  securitygroup = module.ec2.sg1
+  securitygroup = module.instances.sg1
   vpc_id        = module.vpc.vpcid
+  instance1     = module.instances.instance1
+  instance2     = module.instances.instance2
 }
