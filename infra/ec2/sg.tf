@@ -1,7 +1,7 @@
 resource "aws_security_group" "elb_sg" {
   name        = "allow_SSH"
   description = "Allow SSH inbound traffic"
-  vpc_id      = aws_vpc.vpc_demo.id
+  vpc_id      = var.vpc_id
 
   ingress {
     # SSH Port 22 allowed from any IP

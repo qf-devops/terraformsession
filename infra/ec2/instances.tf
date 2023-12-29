@@ -1,7 +1,7 @@
 resource "aws_instance" "elb_instance_example1" {
   ami           = lookup(var.ami_id, var.region)
   instance_type = var.instance_type
-  subnet_id     = aws_subnet.public_1.id
+  subnet_id     = var.subnet_id1
 
   # Security group assign to instance
   vpc_security_group_ids = [aws_security_group.elb_sg.id]
@@ -26,7 +26,7 @@ resource "aws_instance" "elb_instance_example1" {
 resource "aws_instance" "elb_instance_example2" {
   ami           = lookup(var.ami_id, var.region)
   instance_type = var.instance_type
-  subnet_id     = aws_subnet.public_1.id
+  subnet_id     = var.subnet_id2
 
   # Security group assign to instance
   vpc_security_group_ids = [aws_security_group.elb_sg.id]
