@@ -83,4 +83,6 @@ ASG
 ⇒ auto scaling group
 Enable the scale out and scale in policies to automatically to handle scaling with asg.
 
+23. Run linux commands on ec2 with remote_exec resource
+    ref: https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource
 
