@@ -5,3 +5,6 @@ https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/res
 
 
 ssh user@hostnme bootstrap.sh
+
+
+https://jhooq.com/terraform-null-resource/
