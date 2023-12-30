@@ -17,7 +17,7 @@ resource "null_resource" "cluster" {
     type        = "ssh"
     host = element(aws_instance.cluster[*].public_ip, 0)
     user        = "ubuntu"
-    private_key = file("~/aug/user34.pem")
+    #private_key = file("~/aug/user34.pem")
     timeout     = "2m"
   }
   
