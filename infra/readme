@@ -1,0 +1,7 @@
+
+null resource:
+
+https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource
+
+
+ssh user@hostnme bootstrap.sh

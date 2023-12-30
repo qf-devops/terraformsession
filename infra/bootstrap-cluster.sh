@@ -1,0 +1,1 @@
+echo "boostrap command" > /tmp/info.log
