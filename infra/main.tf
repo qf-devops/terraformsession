@@ -20,3 +20,9 @@ module "elb"{
   instance1     = module.instances.instance1
   instance2     = module.instances.instance2
 }
+
+module "asg"{
+  source             = "git@github.com:terraform30122023/asg.git"
+  subnets            = [module.vpc.subnetid1, module.vpc.subnetid2]
+  security_grpup_id  = module.instances.sg1
+}
