@@ -87,3 +87,8 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
     ref: https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource
 
    https://jhooq.com/terraform-null-resource/
+
+24. How to use for loop in terraform
+
+25. How to use if condition in terraform
+
