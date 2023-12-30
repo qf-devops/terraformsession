@@ -9,7 +9,6 @@ resource "null_resource" "cluster" {
   # Changes to any instance of the cluster requires re-provisioning
   triggers = {
     cluster_instance_ids = join(",", aws_instance.cluster[*].id)
-    id = time()
   }
   
   # Bootstrap script can run on any instance of the cluster
@@ -18,14 +17,14 @@ resource "null_resource" "cluster" {
     type        = "ssh"
     host = element(aws_instance.cluster[*].public_ip, 0)
     user        = "ubuntu"
-    private_key = file("/Users/ravi/terraform30122023/asg/user34.pem")
+    private_key = file("/Users/ravi/aug/user34.pem")
     timeout     = "2m"
   }
   
   provisioner "remote-exec" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
-      "echo 'hello' > /tmp/abc ${join(" ",
+      "bootstrap-cluster.sh ${join(" ",
       aws_instance.cluster[*].private_ip)}",
     ]
   }
