@@ -92,3 +92,4 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
 
 25. How to use if condition in terraform
 
+26. Create lambda function with sample python code using terraform
