@@ -96,3 +96,12 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
 
 27. read cloudwatch logs with python using lambda function
 
+28. How to read dictionary/map values in python/golang
+
+29. cassandra module walkthrough :
+   https://github.com/Azure/terraform-azurerm-cosmosdb/blob/main/examples/103-cosmosdb-cassandra-api/main.tf
+    https://github.com/Azure/terraform-azurerm-cosmosdb/blob/main/cassandra.tf
+
+
+
+

@@ -1,3 +1,6 @@
+import gzip
+import json
+import base64
 def lambda_handler(event, context):
     print(f'Logging Event: {event}')
     print(f"Awslog: {event['awslogs']}")
