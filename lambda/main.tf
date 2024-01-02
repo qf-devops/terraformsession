@@ -1,3 +1,9 @@
+data "archive_file" "lambda" {
+  type        = "zip"
+  source_file = "lambda_function.py"
+  output_path = "lambda_function.zip"
+}
+
 resource "aws_lambda_function" "my_lambda" {
   function_name    = "my_lambda_function"
   runtime          = "python3.8"
@@ -6,7 +12,7 @@ resource "aws_lambda_function" "my_lambda" {
   memory_size      = 128
 
   filename         = "lambda_function.zip"
-
+  source_code_hash = data.archive_file.lambda.output_base64sha256
   role = aws_iam_role.lambda_execution_role.arn
 
   environment {
