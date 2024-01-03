@@ -3,12 +3,12 @@ ec2_instances = {
     image           = "ami-0fc5d935ebf8bc3bc"
     keypair         = "user34"
     type            = "t2.micro"
-    tagname         = "one" 
+    tagnames         = ["demo1", "Demo11"]
   },
   two = {
     image           = "ami-0fc5d935ebf8bc3bc"
     keypair         = "user34"
     type            = "t2.small"
-    tagname         = "two"
+    tagnames         = ["demo2", "demo22"]
   }
 }
