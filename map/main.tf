@@ -6,3 +6,4 @@ resource "aws_instance" "app_server" {
   tags = {
     Name = each.value.tagname
   }
+}
