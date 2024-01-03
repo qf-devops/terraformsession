@@ -9,7 +9,7 @@ resource "aws_instance" "app_server" {
         for_each = each.value.tagnames
         content {
           name = tags.value.tagname
-          type = tags.value.tagval
+          value = tags.value.tagval
         }
       }
   }
