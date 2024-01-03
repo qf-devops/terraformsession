@@ -5,12 +5,9 @@ resource "aws_instance" "app_server" {
   key_name      = each.value.keypair
   dynamic "tags" {
     for_each = length(each.value.tagnames) > 0 ? [1] : []
-    content {
-        for_each = each.value.tagnames
-        content {
+     content {
           name = tags.value.tagname
           value = tags.value.tagval
         }
-      }
   }
 }
