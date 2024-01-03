@@ -3,12 +3,10 @@ variable "ec2_instances"{
     image           = string
     keypair         = string
     type            = string
-    tagnames        = object({
-      tags = map(object({
+    tagnames        =  map(object({
         tagname = string
         tagval = string
       }))
-    })
   }))
   description = "List of ec2 instances."
   default     = {}

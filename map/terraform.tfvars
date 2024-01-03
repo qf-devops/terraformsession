@@ -4,7 +4,6 @@ ec2_instances = {
     keypair         = "user34"
     type            = "t2.micro"
     tagnames         = {
-         tags  =  {
              tag1   = {
                     "tagname" = "Name",
                     "tagval"  = "demo1"
@@ -13,7 +12,6 @@ ec2_instances = {
                     "tagname" = "env",
                     "tagval"  = "stage"
                   }
-         }
     }
   },
   two = {
@@ -21,7 +19,6 @@ ec2_instances = {
     keypair         = "user34"
     type            = "t2.small"
     tagnames         = {
-        tags = {
                 tag1   = {
                     "tagname" = "Name",
                     "tagval"  = "demo2"
@@ -30,7 +27,6 @@ ec2_instances = {
                     "tagname" = "env",
                     "tagval"  = "dev"
                 }
-        }
     }
   }
 }
