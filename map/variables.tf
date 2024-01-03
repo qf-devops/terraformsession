@@ -3,7 +3,7 @@ variable "ec2_instances"{
     image           = string
     keypair         = string
     type            = string
-    tagname         = string
+    tagnames        = list(string)
   }))
   description = "List of ec2 instances."
   default     = {}
