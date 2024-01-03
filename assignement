@@ -104,4 +104,8 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
 
 
 30. what  is dynamic block  in terraform.
+   ex: https://stackoverflow.com/questions/51207505/terraform-dynamic-tags-on-asg-and-other-resources-like-efs
+     
+31. explore on workspace with different env.
+    dev  stage prod
 
