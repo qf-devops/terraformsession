@@ -3,30 +3,32 @@ ec2_instances = {
     image           = "ami-0fc5d935ebf8bc3bc"
     keypair         = "user34"
     type            = "t2.micro"
-    tagnames         = {
-             tag1   = {
-                    "tagname" = "Name",
-                    "tagval"  = "demo1"
-                  },
-             tag2   = {
-                    "tagname" = "env",
-                    "tagval"  = "stage"
-                  }
-    }
+    tagname         = "demo1"
+    # tagnames         = {
+    #          tag1   = {
+    #                 "tagname" = "Name",
+    #                 "tagval"  = "demo1"
+    #               },
+    #          tag2   = {
+    #                 "tagname" = "env",
+    #                 "tagval"  = "stage"
+    #               }
+    # }
   },
   two = {
     image           = "ami-0fc5d935ebf8bc3bc"
     keypair         = "user34"
     type            = "t2.small"
-    tagnames         = {
-                tag1   = {
-                    "tagname" = "Name",
-                    "tagval"  = "demo2"
-                },
-                tag2   = {
-                    "tagname" = "env",
-                    "tagval"  = "dev"
-                }
-    }
+    tagname         = "demo2"
+    # tagnames         = {
+    #             tag1   = {
+    #                 "tagname" = "Name",
+    #                 "tagval"  = "demo2"
+    #             },
+    #             tag2   = {
+    #                 "tagname" = "env",
+    #                 "tagval"  = "dev"
+    #             }
+    # }
   }
 }

@@ -3,11 +3,14 @@ resource "aws_instance" "app_server" {
   ami           = each.value.image
   instance_type = each.value.type
   key_name      = each.value.keypair
-  dynamic "tags" {
-    for_each = each.value.tagnames
-     content {
-          key   = tags.value.tagname
-          value = tags.value.tagval
-        }
+  tags{
+      Name = each.value.tagname
   }
+#   dynamic "tags" {
+#     for_each = each.value.tagnames
+#      content {
+#           key   = tags.value.tagname
+#           value = tags.value.tagval
+#         }
+#   }
 }
