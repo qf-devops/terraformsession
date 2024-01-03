@@ -6,8 +6,7 @@ resource "aws_instance" "app_server" {
   dynamic "tags" {
     for_each = length(each.value.tagnames) > 0 ? [1] : []
      content {
-          name = tags.value.tagname
-          value = tags.value.tagval
+          tags.value.tagname = tags.value.tagval
         }
   }
 }
