@@ -109,3 +109,6 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
 31. explore on workspace with different env.
     dev  stage prod
 
+32. pg as backend with docker.
+
+33. ddb and s3 as a back and statelock
