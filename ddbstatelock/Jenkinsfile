@@ -1,0 +1,27 @@
+pipeline {
+    agent {label 'terraform-label'}
+
+    stages {
+        stage('clone-repo') {
+            steps {
+                checkout scm
+                sh "terraform init"
+            }
+        }
+        stage('init') {
+            steps {
+                sh "terraform init"
+            }
+        }
+        stage('plan') {
+            steps {
+                sh "terraform plan -out tf.plan"
+            }
+        }
+        stage('apply') {
+            steps {
+                sh "terraform apply tf.plan"
+            }
+        }
+    }
+}
