@@ -5,6 +5,6 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
   key_name      = "user34"
   tags = {
-    Name = ddblock
+    Name = "ddblock"
   }
 }
