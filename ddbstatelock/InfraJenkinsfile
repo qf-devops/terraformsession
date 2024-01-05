@@ -1,0 +1,48 @@
+pipeline {
+    agent {label 'terraform-label'}
+     tools {
+        terraform "terraform"
+    }
+    stages {
+        stage('clone-repo') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('init') {
+            steps {
+                dir('ddbstatelock/ec2') {
+                  sh "terraform init"
+                }
+            }
+        }
+        stage('plan') {
+            steps {
+                dir('ddbstatelock/ec2') {
+                  withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: "awscreds",
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                        sh "terraform plan -out tf.plan"
+                    }
+                }
+            }
+        }
+        stage('apply') {
+            steps {
+                dir('ddbstatelock/ec2') {
+                  withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: "awscreds",
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                      sh "terraform apply tf.plan"
+                    }
+                }
+            }
+        }
+    }
+}
