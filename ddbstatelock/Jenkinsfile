@@ -1,11 +1,12 @@
 pipeline {
     agent {label 'terraform-label'}
-
+     tools {
+        terraform "terraform"
+    }
     stages {
         stage('clone-repo') {
             steps {
                 checkout scm
-                sh "terraform init"
             }
         }
         stage('init') {
