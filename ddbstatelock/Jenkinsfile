@@ -11,17 +11,23 @@ pipeline {
         }
         stage('init') {
             steps {
-                sh "terraform init"
+                dir('ddbstatelock/ddb') {
+                  sh "terraform init"
+                }
             }
         }
         stage('plan') {
             steps {
-                sh "terraform plan -out tf.plan"
+                dir('ddbstatelock/ddb') {
+                  sh "terraform plan -out tf.plan"
+                }
             }
         }
         stage('apply') {
             steps {
-                sh "terraform apply tf.plan"
+                dir('ddbstatelock/ddb') {
+                  sh "terraform apply tf.plan"
+                }
             }
         }
     }
