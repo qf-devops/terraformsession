@@ -51,5 +51,19 @@ pipeline {
                 }
             }
         }
+        stage('destroy') {
+            steps {
+                dir('ddbstatelock/ec2') {
+                  withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: "awscreds",
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                      sh "terraform destroy --auto-approve"
+                    }
+                }
+            }
+        }
     }
 }
