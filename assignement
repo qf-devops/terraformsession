@@ -112,3 +112,9 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
 32. pg as backend with docker.
 
 33. ddb and s3 as a back and statelock
+
+34. create pipeline to run terraform scripts.
+
+35 . read about github actions 
+
+36. docker and k8s providers with terraform
