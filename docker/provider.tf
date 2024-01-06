@@ -12,5 +12,5 @@ terraform {
 # }
 
 provider "docker" {
-  host = "tcp://23.23.28.233:2376"
+  host = "tcp://23.23.28.233:2375"
 }
