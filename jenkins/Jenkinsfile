@@ -1,0 +1,69 @@
+pipeline {
+    agent {label 'terraform-label'}
+     tools {
+        terraform "terraform"
+    }
+    stages {
+        stage('clone-repo') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('init') {
+            steps {
+                dir('jenkins') {
+                  withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: "awscreds",
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                       sh "terraform init"
+                    }
+                }
+            }
+        }
+        stage('plan') {
+            steps {
+                dir('jenkins') {
+                  withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: "awscreds",
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                        sh "terraform plan -out tf.plan"
+                    }
+                }
+            }
+        }
+        stage('apply') {
+            steps {
+                dir('jenkins') {
+                  withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: "awscreds",
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                      sh "terraform apply tf.plan"
+                    }
+                }
+            }
+        }
+        // stage('destroy') {
+        //     steps {
+        //         dir('jenkins') {
+        //           withCredentials([[
+        //                 $class: 'AmazonWebServicesCredentialsBinding',
+        //                 credentialsId: "awscreds",
+        //                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+        //                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+        //             {
+        //               sh "terraform destroy --auto-approve"
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}
