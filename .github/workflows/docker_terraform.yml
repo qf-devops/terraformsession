@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: 'docker_terraform'
 
 on:
   push:
