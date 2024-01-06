@@ -12,8 +12,9 @@ terraform {
 # }
 
 provider "docker" {
-  host     = "ssh://ubuntu@23.23.28.233:22"
-  ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
-  cert_path = pathexpand(".docker")
-  #key_material  = file(pathexpand(".docker/user34.pem"))
+  host = "tcp://23.23.28.233:2376"
+  # host     = "ssh://ubuntu@23.23.28.233:22"
+  # ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
+  # cert_path = pathexpand(".docker")
+  # #key_material  = file(pathexpand(".docker/user34.pem"))
 }
