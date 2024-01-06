@@ -51,19 +51,19 @@ pipeline {
                 }
             }
         }
-        // stage('destroy') {
-        //     steps {
-        //         dir('jenkins') {
-        //           withCredentials([[
-        //                 $class: 'AmazonWebServicesCredentialsBinding',
-        //                 credentialsId: "awscreds",
-        //                 accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-        //                 secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
-        //             {
-        //               sh "terraform destroy --auto-approve"
-        //             }
-        //         }
-        //     }
-        // }
+        stage('destroy') {
+            steps {
+                dir('jenkins') {
+                  withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: "awscreds",
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                      sh "terraform destroy --auto-approve"
+                    }
+                }
+            }
+        }
     }
 }
