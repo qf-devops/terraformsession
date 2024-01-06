@@ -2,7 +2,7 @@ name: 'Terraform'
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "k8s" ]
   pull_request:
 
 permissions:
@@ -44,19 +44,19 @@ jobs:
     #     role-to-assume: arn:aws:iam::652313455557:role/my-github-actions-role
     #     aws-region: us-east-1
     - name: Terraform Init
-      working-directory: ./jenkins
+      working-directory: ./k8scluster/eks
       run: terraform init
 
     - name: Terraform Plan
-      working-directory: ./jenkins
+      working-directory: ./k8scluster/eks
       run: terraform plan -input=false -out=tf.plan
 
     - name: Terraform Apply
-      working-directory: ./jenkins
+      working-directory: ./k8scluster/eks
       # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply "tf.plan"
     
     - name: Terraform Destroy
-      working-directory: ./jenkins
+      working-directory: ./k8scluster/eks
       # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform destroy --auto-approve
