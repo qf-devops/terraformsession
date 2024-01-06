@@ -1,8 +1,9 @@
 resource "docker_container" "ubuntu" {
-  name  = "foo"
-  image = docker_image.ubuntu.image_id
+  name  = "n1"
+  image = docker_image.nginx.image_id
+  ports = [80:80]
 }
 
-resource "docker_image" "ubuntu" {
-  name = "ubuntu:precise"
+resource "docker_image" "nginx" {
+  name = "nginx:latest"
 }
