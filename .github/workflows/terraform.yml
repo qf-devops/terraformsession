@@ -53,5 +53,5 @@ jobs:
 
     - name: Terraform Apply
       working-directory: ./jenkins
-      if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+      # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply tf.plan -input=false
