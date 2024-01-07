@@ -5,8 +5,29 @@ provider "aws" {
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "my-eks-cluster"
-  subnets         = ["subnet-05b44bfd1b4116bef", "subnet-0249c87e84709e37d", "subnet-0e577330874ecd2c6"] 
+  subnet_ids         = ["subnet-05b44bfd1b4116bef", "subnet-0249c87e84709e37d", "subnet-0e577330874ecd2c6"] 
   cluster_version = "1.26"
+  cluster_endpoint_public_access = true
+  eks_managed_node_group_defaults = {
+    ami_type = "AL2_x86_64"
+  }
+  eks_managed_node_groups = {
+    one = {
+      name = "node-group-1"
+      instance_types = ["t3.small"]
+      min_size     = 1
+      max_size     = 3
+      desired_size = 2
+    }
+
+    two = {
+      name = "node-group-2"
+      instance_types = ["t3.small"]
+      min_size     = 1
+      max_size     = 2
+      desired_size = 1
+    }
+  }
 }
 
 provider "kubernetes" {
