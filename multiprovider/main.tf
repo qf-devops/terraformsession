@@ -30,10 +30,26 @@ module "eks" {
   }
 }
 
+# provider "kubernetes" {
+#   alias  = "eks_cluster"
+#   host   = module.eks.cluster_endpoint
+#   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
+# }
+
+data "aws_eks_cluster" "example" {
+  name = "demo-eks-cluster"
+}
+data "aws_eks_cluster_auth" "example" {
+  name = "demo-eks-cluster"
+}
 provider "kubernetes" {
-  alias  = "eks_cluster"
-  host   = module.eks.cluster_endpoint
-  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
+  host                   = data.aws_eks_cluster.example.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.example.certificate_authority[0].data)
+  exec {
+    api_version = "client.authentication.k8s.io/v1beta1"
+    args        = ["eks", "get-token", "--cluster-name", "demo-eks-cluster"]
+    command     = "aws"
+  }
 }
 
 resource "kubernetes_namespace" "nginx" {
