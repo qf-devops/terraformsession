@@ -5,7 +5,7 @@ provider "aws" {
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "my-eks-cluster"
-  subnets         = ["subnet-xxxxxx", "subnet-yyyyyy", "subnet-zzzzzz"] # Replace with your subnet IDs
+  subnets         = ["subnet-05b44bfd1b4116bef", "subnet-0249c87e84709e37d", "subnet-0e577330874ecd2c6"] 
   cluster_version = "1.26"
 }
 
