@@ -44,19 +44,19 @@ jobs:
     #     role-to-assume: arn:aws:iam::652313455557:role/my-github-actions-role
     #     aws-region: us-east-1
     - name: Terraform Init
-      working-directory: ./eks
+      working-directory: ./multiprovider
       run: terraform init
 
     - name: Terraform Plan
-      working-directory: ./eks
+      working-directory: ./multiprovider
       run: terraform plan -input=false -out=tf.plan
 
     - name: Terraform Apply
-      working-directory: ./eks
+      working-directory: ./multiprovider
       # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply "tf.plan"
     
     - name: Terraform Destroy
-      working-directory: ./eks
+      working-directory: ./multiprovider
       # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform destroy --auto-approve
