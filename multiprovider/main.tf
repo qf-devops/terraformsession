@@ -36,12 +36,12 @@ provider "kubernetes" {
   cluster_certificate = base64decode(module.eks.cluster_certificate_authority_data)
 }
 
-# resource "kubernetes_namespace" "nginx" {
-#   provider = kubernetes.eks_cluster
-#   metadata {
-#     name = "nginx-namespace"
-#   }
-# }
+resource "kubernetes_namespace" "nginx" {
+  provider = kubernetes.eks_cluster
+  metadata {
+    name = "nginx-namespace"
+  }
+}
 
 # resource "kubernetes_deployment" "nginx" {
 #   provider = kubernetes.eks_cluster
