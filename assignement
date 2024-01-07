@@ -123,3 +123,5 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
     aws, docker
 
 38. add kubernetes provider with aws eks terraform module.
+
+39. refer:  https://github.com/qfitsolutions/aws-terraform-course.git
