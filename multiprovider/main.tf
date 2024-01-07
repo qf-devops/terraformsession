@@ -33,7 +33,7 @@ module "eks" {
 provider "kubernetes" {
   alias  = "eks_cluster"
   host   = module.eks.cluster_endpoint
-  cluster_certificate = base64decode(module.eks.cluster_certificate_authority_data)
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
 }
 
 resource "kubernetes_namespace" "nginx" {
