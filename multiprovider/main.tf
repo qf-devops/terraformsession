@@ -30,12 +30,11 @@ module "eks" {
   }
 }
 
-# provider "kubernetes" {
-#   alias  = "eks_cluster"
-#   host   = module.eks.cluster_endpoint
-#   token  = module.eks.cluster_token
-#   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority[0].data)
-# }
+provider "kubernetes" {
+  alias  = "eks_cluster"
+  host   = module.eks.cluster_endpoint
+  cluster_certificate = base64decode(module.eks.cluster_certificate_authority_data)
+}
 
 # resource "kubernetes_namespace" "nginx" {
 #   provider = kubernetes.eks_cluster
