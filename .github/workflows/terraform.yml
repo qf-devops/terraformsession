@@ -56,7 +56,7 @@ jobs:
       # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply "tf.plan"
     
-    # - name: Terraform Destroy
-    #   working-directory: ./multiprovider
-    #   # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
-    #   run: terraform destroy --auto-approve
+    - name: Terraform Destroy
+      working-directory: ./multiprovider
+      # if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
+      run: terraform destroy --auto-approve
