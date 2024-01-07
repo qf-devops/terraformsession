@@ -4,7 +4,7 @@ provider "aws" {
 
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
-  cluster_name    = "my-eks-cluster"
+  cluster_name    = "demo-eks-cluster"
   subnet_ids         = ["subnet-05b44bfd1b4116bef", "subnet-0249c87e84709e37d", "subnet-0e577330874ecd2c6"] 
   cluster_version = "1.26"
   cluster_endpoint_public_access = true
