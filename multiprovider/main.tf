@@ -45,12 +45,12 @@ provider "kubernetes" {
   token                  = data.aws_eks_cluster_auth.example.token
 }
 
-resource "kubernetes_namespace" "nginx" {
-  provider = kubernetes.eks_cluster
-  metadata {
-    name = "nginx-namespace"
-  }
-}
+# resource "kubernetes_namespace" "nginx" {
+#   provider = kubernetes.eks_cluster
+#   metadata {
+#     name = "nginx-namespace"
+#   }
+# }
 
 # resource "kubernetes_deployment" "nginx" {
 #   provider = kubernetes.eks_cluster
