@@ -118,3 +118,10 @@ Enable the scale out and scale in policies to automatically to handle scaling wi
 35 . read about github actions 
 
 36. docker and k8s providers with terraform
+
+37. how to use two providers in sinlge  directory as part of terraform
+    aws, docker
+
+38. add kubernetes provider with aws eks terraform module.
+
+39. refer:  https://github.com/qfitsolutions/aws-terraform-course.git
