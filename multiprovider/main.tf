@@ -30,49 +30,49 @@ module "eks" {
   }
 }
 
-provider "kubernetes" {
-  alias  = "eks_cluster"
-  host   = module.eks.cluster_endpoint
-  token  = module.eks.cluster_token
-  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority[0].data)
-}
+# provider "kubernetes" {
+#   alias  = "eks_cluster"
+#   host   = module.eks.cluster_endpoint
+#   token  = module.eks.cluster_token
+#   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority[0].data)
+# }
 
-resource "kubernetes_namespace" "nginx" {
-  provider = kubernetes.eks_cluster
-  metadata {
-    name = "nginx-namespace"
-  }
-}
+# resource "kubernetes_namespace" "nginx" {
+#   provider = kubernetes.eks_cluster
+#   metadata {
+#     name = "nginx-namespace"
+#   }
+# }
 
-resource "kubernetes_deployment" "nginx" {
-  provider = kubernetes.eks_cluster
-  metadata {
-    name      = "nginx-deployment"
-    namespace = kubernetes_namespace.nginx.metadata[0].name
-  }
+# resource "kubernetes_deployment" "nginx" {
+#   provider = kubernetes.eks_cluster
+#   metadata {
+#     name      = "nginx-deployment"
+#     namespace = kubernetes_namespace.nginx.metadata[0].name
+#   }
 
-  spec {
-    replicas = 1
+#   spec {
+#     replicas = 1
 
-    selector {
-      match_labels = {
-        app = "nginx"
-      }
-    }
+#     selector {
+#       match_labels = {
+#         app = "nginx"
+#       }
+#     }
 
-    template {
-      metadata {
-        labels = {
-          app = "nginx"
-        }
-      }
+#     template {
+#       metadata {
+#         labels = {
+#           app = "nginx"
+#         }
+#       }
 
-      spec {
-        container {
-          name  = "nginx"
-          image = "nginx:latest"
-        }
-      }
-    }
-  }
-}
+#       spec {
+#         container {
+#           name  = "nginx"
+#           image = "nginx:latest"
+#         }
+#       }
+#     }
+#   }
+# }
